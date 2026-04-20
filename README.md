@@ -31,7 +31,14 @@ Feel free to assign a different license to your forked or copied repository if y
 
 ## Getting started
 
-To create the Python environment, simply run the `setup.sh` script:
+Clone the repository (or fork it and clone your fork):
+
+```bash
+git clone git@github.com:reproducible-reporting/bootstrap.git
+cd bootstrap
+```
+
+Create the Python environment with the `setup.sh` script:
 
 ```bash
 ./setup.sh
