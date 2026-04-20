@@ -28,3 +28,9 @@ Instructions:
    ```bash
    apptainer build --build-arg x86_64_level=v3 gpaw-cpu.sif gpaw-cpu.def
    ```
+
+You can test your container with the following command:
+
+```bash
+apptainer exec gpaw-cpu.sif gpaw test
+```
