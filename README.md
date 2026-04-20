@@ -112,7 +112,7 @@ see the [uv features](https://docs.astral.sh/uv/getting-started/features/).
 
 ### Example workflow
 
-The `workflows/matplotlib/` contains an example workflow that only needs the StepUp environment to run.
+The [`workflows/matplotlib/`](workflows/matplotlib/) contains an example workflow that only needs the StepUp environment to run.
 
 ## Working with Apptainer containers
 
