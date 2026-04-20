@@ -5,7 +5,10 @@ SPDX-License-Identifier: CC0-1.0
 
 # Apptainer example
 
-Instructions:
+Note that all the instructions below only rely on apptainer.
+They work without StepUp.
+
+## Container build instructions
 
 1. Determine the x86-64 architecture level of your host operating system:
 
@@ -29,8 +32,24 @@ Instructions:
    apptainer build --build-arg x86_64_level=v3 gpaw-cpu.sif gpaw-cpu.def
    ```
 
+## Basic test
+
 You can test your container with the following command:
 
 ```bash
 apptainer exec gpaw-cpu.sif gpaw test
+```
+
+## Interactive use
+
+To work interactively with a container, you can launch a subshell as follows:
+
+```bash
+apptainer run gpaw-cpu.sif
+```
+
+In the container, you can test GPAW as follows:
+
+```bash
+gpaw test
 ```

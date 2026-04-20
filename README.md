@@ -11,7 +11,7 @@ This repository can be used as a template for one or more StepUp workflows.
 You can simply fork or copy this repository to build your own workflows.
 
 For basic usage, you only need a Linux environment with the `curl` command installed.
-The `setup.py` script will bootstrap a minimal self-contained Python environment and install StepUp and its dependencies.
+The `setup.sh` script will bootstrap a minimal self-contained Python environment and install StepUp and its dependencies.
 
 If significant additional software is needed,
 it is recommended to either use externally installed software,
@@ -45,7 +45,7 @@ and create a virtual environment in the `.venv` directory.
 Before you can run `stepup boot` or use other packages,
 it is recommended to activate the environment.
 
-### Using a subshell
+#### Using a subshell
 
 A subshell is the simplest robust way to activate the environment.
 
@@ -60,7 +60,7 @@ The more traditional `source .venv/bin/activate` command is not recommended,
 as it does not allow for customization.
 In addition, exiting the shell offers a cleaner way to return to the original environment.
 
-### Using an LMod module
+#### Using an LMod module
 
 If you have LMod installed, e.g. on an HPC cluster, you can load the `bootstrap` module:
 
@@ -70,6 +70,15 @@ module load bootstrap
 ```
 
 This can be combined with other modules and does not require a subshell.
+
+#### Example workflow
+
+The [`workflows/matplotlib/`](workflows/matplotlib/) contains an example workflow that only needs the StepUp environment to run:
+
+```bash
+cd workflows/matplotlib/
+stepup boot
+```
 
 ### Adding more environment variables
 
@@ -110,49 +119,18 @@ uv run somecommand     # Run a command in the environment without activating it
 For a complete list of features and commands,
 see the [uv features](https://docs.astral.sh/uv/getting-started/features/).
 
-### Example workflow
-
-The [`workflows/matplotlib/`](workflows/matplotlib/) contains an example workflow that only needs the StepUp environment to run.
-
 ## Working with Apptainer containers
 
 This repository contains an example of an [Apptainer](https://apptainer.org/) definition to get you started.
 
 ### Building a container
 
-We recommend that you pull only pre-built containers, at best with minimal modifications.
+We recommend that you pull only pre-built containers, with minimal modifications at most.
 Apptainer is great for low-overhead execution of software.
 Other tools, like podman or docker, are better suited for building and testing containers.
 (See e.g. [container-factory](https://github.com/reproducible-reporting/container-factory) for examples of building containers with podman.)
 
-See [apptainer/README.md](apptainer/README.md) for instructions on how to build the container.
-
-### Using a container interactively
-
-To work interactively with a container, you can launch a subshell as follows:
-
-```bash
-apptainer run gpaw-cpu.sif
-```
-
-In the container, you can test GPAW as follows:
-
-```bash
-gpaw test
-```
-
-This will also work without having the StepUp environment activated.
-
-### Running a calculation in a container
-
-You can just use the standard apptainer command:
-
-```bash
-apptainer exec gpaw-cpu.sif somecommand
-```
-
-This will also work without having the StepUp environment activated.
-The same command can also be used in Slurm jobs.
+See [`apptainer/`](apptainer/) for instructions on how to build and use the container.
 
 ### Using a container in a StepUp workflow
 
