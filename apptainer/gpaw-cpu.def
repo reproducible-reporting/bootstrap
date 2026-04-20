@@ -1,0 +1,12 @@
+# SPDX-FileCopyrightText: © 2026 Toon Verstraelen <Toon.Verstraelen@UGent.be>
+# SPDX-License-Identifier: CC0-1.0
+
+Bootstrap: docker
+From: ghcr.io/reproducible-reporting/gpaw-25.7.0-cpu:build1-x86-64-{{ x86_64_level }}
+
+%arguments
+    x86_64_level=v2
+
+%environment
+    export LC_ALL=C
+    export SOURCE_DATE_EPOCH=315532800

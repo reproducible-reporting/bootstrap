@@ -1,0 +1,30 @@
+# SPDX-FileCopyrightText: © 2026 Toon Verstraelen <Toon.Verstraelen@UGent.be>
+# SPDX-License-Identifier: CC0-1.0
+
+# IDEs and development tools
+.idea
+.vscode
+.ruff_cache
+
+# Python
+__pycache__
+dist
+build
+
+# Apptainer
+*.sif
+apptainer/*.txt
+
+# StepUp
+.stepup
+
+# Software environment
+.venv
+venv
+venvs
+shell.sh
+
+# Other
+tmp
+pkgs
+slurm-*.*
