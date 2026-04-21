@@ -29,7 +29,7 @@ They work without StepUp.
 1. Build the Apptainer image using the appropriate architecture level:
 
    ```bash
-   apptainer build --build-arg x86_64_level=v3 gpaw-cpu.sif gpaw-cpu.def
+   apptainer build gpaw-cpu.sif docker://tovrstra/gpaw-cpu:v25.7.0-b1-x86-64-v3
    ```
 
 ## Basic test
@@ -37,7 +37,7 @@ They work without StepUp.
 You can test your container with the following command:
 
 ```bash
-apptainer exec gpaw-cpu.sif gpaw test
+apptainer exec -e gpaw-cpu.sif gpaw test
 ```
 
 ## Interactive use
@@ -45,7 +45,7 @@ apptainer exec gpaw-cpu.sif gpaw test
 To work interactively with a container, you can launch a subshell as follows:
 
 ```bash
-apptainer run gpaw-cpu.sif
+apptainer shell -e gpaw-cpu.sif
 ```
 
 In the container, you can test GPAW as follows:

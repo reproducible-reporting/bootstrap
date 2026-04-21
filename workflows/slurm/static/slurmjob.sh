@@ -8,5 +8,5 @@
 #SBATCH --time=00:30:00
 #SBATCH --mem=7G
 
-apptainer exec ../../../../apptainer/gpaw-cpu.sif \
+apptainer exec -e ../../../../apptainer/gpaw-cpu.sif \
   mpiexec -n 2 gpaw run structure.cif --parameters xc=PBE,mode=fd

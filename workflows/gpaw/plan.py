@@ -17,7 +17,7 @@ for cid in CIDS:
         out=f"output/{cid}.cif",
     )
     runsh(
-        "apptainer exec ../../../apptainer/gpaw-cpu.sif gpaw run "
+        "apptainer exec -e ../../../apptainer/gpaw-cpu.sif gpaw run "
         f"{cid}.cif --parameters xc=PBE,mode=fd",
         inp=f"{cid}.cif",
         out=f"{cid}.txt",
