@@ -5,7 +5,7 @@
 # These are mainly placeholders. Feel free to change them as you see fit.
 name = "bootstrap"
 version = "0.1.0"
-description = "Boostrap your StepUp project."
+description = "Bootstrap your StepUp project."
 readme = "README.md"
 dependencies = [
     "matplotlib>=3.10.8",
