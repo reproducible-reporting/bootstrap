@@ -8,6 +8,8 @@ SPDX-License-Identifier: CC0-1.0
 Note that all the instructions below only rely on apptainer.
 They work without StepUp.
 
+See also: <https://docs.hpc.ugent.be/Linux/apptainer/>
+
 ## Container build instructions
 
 1. Determine the x86-64 architecture level of your host operating system:
@@ -26,10 +28,26 @@ They work without StepUp.
 
    This means that `x86-64-v3` is the highest architecture level supported by your host operating system.
 
+1. Prepare a temporary directory for the Apptainer build,
+   assuming /tmp is a fast local storage on your system:
+
+   ```bash
+   export APPTAINER_TMPDIR=/tmp/$USER/apptainer/tmpdir
+   mkdir -p $APPTAINER_TMPDIR
+   ```
+
 1. Build the Apptainer image using the appropriate architecture level:
 
    ```bash
-   apptainer build gpaw-cpu.sif docker://tovrstra/gpaw-cpu:v25.7.0-b1-x86-64-v3
+   apptainer build $APPTAINER_TMPDIR/gpaw-cpu.sif docker://tovrstra/gpaw-cpu:v25.7.0-b1-x86-64-v3
+   mv $APPTAINER_TMPDIR/gpaw-cpu.sif .
+   ```
+
+1. Clean up the temporary directory:
+
+   ```bash
+   rm -rf $APPTAINER_TMPDIR
+   unset APPTAINER_TMPDIR
    ```
 
 ## Basic test
@@ -53,3 +71,8 @@ In the container, you can test GPAW as follows:
 ```bash
 gpaw test
 ```
+
+## Containers with CUDA
+
+When you use containers with CUDA, use the `--nv` option of `apptainer exec`
+to give the container access to the GPU hardware.

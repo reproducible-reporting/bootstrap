@@ -4,6 +4,7 @@ SPDX-License-Identifier: CC0-1.0
 -->
 
 ![License](https://img.shields.io/github/license/reproducible-reporting/bootstrap)
+[![Reproducible Reporting](https://raw.githubusercontent.com/reproducible-reporting/.github/main/profile/logo.svg)](https://github.com/reproducible-reporting)
 
 # StepUp Bootstrap repository
 
@@ -87,12 +88,19 @@ cd workflows/matplotlib/
 stepup boot
 ```
 
-### Adding more environment variables
+#### Adding more environment variables
 
-If you need to add more environment variables, these need to be added to two files:
+If you need to add more environment variables,
+these need to be added in two places in `setup.sh`:
+(i) the part writing the `shell.sh` script,
+and (ii) the part writing the `.venv/modules/bootstrap.lua` file.
+After making these changes, you need to re-run the `setup.sh`.
 
-- `shell.sh`: for the subshell activation method
-- `.venv/modules/bootstrap.lua`: for the LMod module
+#### Interaction with VSCode Tunnel
+
+It is recommended to first activate the environment in a terminal,
+and then start the VSCode Tunnel from that terminal.
+This way, the VSCode Tunnel will inherit the environment variables from the terminal,
 
 ### Software management with uv
 
