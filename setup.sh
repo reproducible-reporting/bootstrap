@@ -25,6 +25,7 @@ source .venv/bin/activate
 export STEPUP_PATH_FILTER='+../'
 $SHELL -i
 EOF
+head -n-1 shell.sh | tail -n+2 > .envrc
 chmod +x shell.sh
 
 # Create the module file for HPC clusters (also works locally)

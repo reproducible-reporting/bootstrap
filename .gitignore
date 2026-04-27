@@ -22,6 +22,7 @@ apptainer/*.txt
 .venv
 venv
 venvs
+.envrc
 shell.sh
 
 # Other

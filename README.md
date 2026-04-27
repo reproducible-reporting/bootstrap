@@ -68,6 +68,8 @@ The more traditional `source .venv/bin/activate` command is not recommended,
 as it does not allow for customization.
 In addition, exiting the shell offers a cleaner way to return to the original environment.
 
+For those who prefer to use [`direnv`](https://direnv.net/), a `.envrc` file is also created that activates the environment when you `cd` into the repository.
+
 #### Using an LMod module
 
 If you have LMod installed, e.g. on an HPC cluster, you can load the `bootstrap` module:
