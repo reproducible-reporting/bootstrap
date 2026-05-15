@@ -19,6 +19,7 @@ export UV_PYTHON_INSTALL_DIR=.venv/uv-python
 # Create the shell.sh script
 cat > shell.sh << EOF
 #!/usr/bin/env bash
+export PYTHONNOUSERSITE=1
 export SOURCE_DATE_EPOCH=315532800
 export PROJECT_ROOT=$PWD
 source .venv/bin/activate
@@ -32,6 +33,7 @@ chmod +x shell.sh
 mkdir -p .venv/modules
 cat > .venv/modules/bootstrap.lua << EOF
 local project_root = "$PWD"
+setenv("PYTHONNOUSERSITE", "1")
 setenv("PROJECT_ROOT", project_root)
 local venv = project_root .. "/.venv"
 setenv("SOURCE_DATE_EPOCH", "315532800")
